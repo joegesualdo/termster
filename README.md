@@ -1,10 +1,14 @@
 ## Termster
 > Terminal html element.
 
+![termster-example](https://raw.github.com/joegesualdo/termster/master/termster-example.png)
+
 ## Install
 ```
 $ npm install --save termster 
 ```
+
+## [Example](https://htmlpreview.github.io/?https://github.com/joegesualdo/termster/blob/master/public/index.html)
 
 ## Usage
 ```javascript
@@ -65,6 +69,7 @@ var newNode = document.createElement('div')
 newNode.innerHTML = html
 document.querySelector(".terminal-simulator").appendChild(newNode)
 ```
+### The above example can be previewed [here](https://htmlpreview.github.io/?https://github.com/joegesualdo/termster/blob/master/public/index.html)
 
 ## API
 
