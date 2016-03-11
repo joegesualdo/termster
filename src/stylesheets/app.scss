@@ -1,0 +1,178 @@
+$green: #B9E8BB;
+$dark-gray: #404040;
+$gray: #666666;
+$white: #D6D6D6;
+$cayan: #75D4D6;
+$magenta: #D7ACD6;
+$blue: #78AAD6;
+$yellow: #FFD479;
+$red: #F78D8C;
+
+$font-size: 20px;
+
+.terminal-simulator {
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1;
+  position: relative;
+  background: $dark-gray;
+  color: #e8e8e8;
+  padding: 1.25rem;
+  font-family: "Droid Sans Mono", monospace;
+  font-weight: 400;
+  box-shadow: 0 0 1em rgba(0,0,0,0.25);
+  border-radius: 3px;
+}
+
+.terminal-simulator_line {
+  word-wrap: break-word;
+  border-radius: 3px;
+
+  display: block;
+  color: #e8e8e8;
+  border-radius: 3px;
+  padding: 1em;
+
+  color: #e8e8e8;
+  padding: 0;
+  display: block;
+}
+.terminal-simulator_line--comment {
+  @extend .terminal-simulator_line--comment;
+  color: rgb(102, 102, 102);
+}
+
+.terminal-simulator_line_content {
+  display: inline-block;
+  font-size: 0;
+}
+.terminal-simulator_line_content_prompt {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: $gray;
+  display: inline-block;
+}
+.terminal-simulator_line_content_prompt_sequence {
+  display: inline-block;
+  margin: 0 6px 0 0;
+  text-align: center;
+}
+.terminal-simulator_line_content_prompt_sequence--green {
+  @extend .terminal-simulator_line_content_sequence;
+  color: $green;
+}
+.terminal-simulator_line_content_prompt_sequence--cayan {
+  @extend .terminal-simulator_line_content_sequence;
+  color: $cayan;
+}
+.terminal-simulator_line_content_prompt_sequence--magenta{
+  @extend .terminal-simulator_line_content_sequence;
+  color: $magenta;
+}
+.terminal-simulator_line_content_prompt_sequence--blue {
+  @extend .terminal-simulator_line_content_sequence;
+  color: $blue;
+}
+.terminal-simulator_line_content_prompt_sequence--yellow {
+  @extend .terminal-simulator_line_content_sequence;
+  color: $yellow;
+}
+.terminal-simulator_line_content_prompt_sequence--red {
+  @extend .terminal-simulator_line_content_sequence;
+  color: $red;
+}
+.terminal-simulator_line_content_prompt_sequence_char {
+  display: inline-block;
+  font-size: $font-size;
+  padding: 0 .2px;
+  text-align: center;
+}
+.terminal-simulator_line_content_prompt_sequence_char--green {
+  @extend .terminal-simulator_line_content_sequence_char;
+  color: $green;
+}
+.terminal-simulator_line_content_prompt_sequence_char--cayan {
+  @extend .terminal-simulator_line_content_sequence_char;
+  color: $cayan;
+}
+.terminal-simulator_line_content_prompt_sequence_char--magenta{
+  @extend .terminal-simulator_line_content_sequence_char;
+  color: $magenta;
+}
+.terminal-simulator_line_content_prompt_sequence_char--blue {
+  @extend .terminal-simulator_line_content_sequence_char;
+  color: $blue;
+}
+.terminal-simulator_line_content_prompt_sequence_char--yellow {
+  @extend .terminal-simulator_line_content_sequence_char;
+  color: $yellow;
+}
+.terminal-simulator_line_content_prompt_sequence_char--red {
+  @extend .terminal-simulator_line_content_sequence_char;
+  color: $red;
+}
+
+.terminal-simulator_line_content_sequence {
+  display: inline-block;
+  margin: 0 6px 0 0;
+  text-align: center;
+}
+
+.terminal-simulator_line_content_sequence--green {
+  @extend .terminal-simulator_line_content_sequence;
+  color: $green;
+}
+.terminal-simulator_line_content_sequence--cayan {
+  @extend .terminal-simulator_line_content_sequence;
+  color: $cayan;
+}
+.terminal-simulator_line_content_sequence--magenta{
+  @extend .terminal-simulator_line_content_sequence;
+  color: $magenta;
+}
+.terminal-simulator_line_content_sequence--blue {
+  @extend .terminal-simulator_line_content_sequence;
+  color: $blue;
+}
+.terminal-simulator_line_content_sequence--yellow {
+  @extend .terminal-simulator_line_content_sequence;
+  color: $yellow;
+}
+.terminal-simulator_line_content_sequence--red {
+  @extend .terminal-simulator_line_content_sequence;
+  color: $red;
+}
+
+.terminal-simulator_line_content_sequence_char {
+  display: inline-block;
+  font-size: $font-size;
+  padding: 0 .2px;
+  text-align: center;
+}
+
+.terminal-simulator_line_content_sequence_char--green {
+  @extend .terminal-simulator_line_content_sequence_char;
+  color: $green;
+}
+.terminal-simulator_line_content_sequence_char--cayan {
+  @extend .terminal-simulator_line_content_sequence_char;
+  color: $cayan;
+}
+.terminal-simulator_line_content_sequence_char--magenta{
+  @extend .terminal-simulator_line_content_sequence_char;
+  color: $magenta;
+}
+.terminal-simulator_line_content_sequence_char--blue {
+  @extend .terminal-simulator_line_content_sequence_char;
+  color: $blue;
+}
+.terminal-simulator_line_content_sequence_char--yellow {
+  @extend .terminal-simulator_line_content_sequence_char;
+  color: $yellow;
+}
+.terminal-simulator_line_content_sequence_char--red {
+  @extend .terminal-simulator_line_content_sequence_char;
+  color: $red;
+}
