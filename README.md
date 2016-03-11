@@ -1,7 +1,7 @@
 ## Termster
 > Terminal html element.
 
-Create terminal element with html and css that looks like this:
+Create terminal element with html and css that looks like the following:
 
 ![termster-example](https://raw.github.com/joegesualdo/termster/master/termster-example.png)
 
