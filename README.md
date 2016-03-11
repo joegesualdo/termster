@@ -1,54 +1,54 @@
-## Termy 
+## Termster
 > Terminal html element.
 
 ## Install
 ```
-$ npm install --save termy 
+$ npm install --save termster 
 ```
 
 ## Usage
 ```javascript
-var Termy = require('termy').Termy
-var TermyLine = require('termy').TermyLine
+var Termster = require('termster').Termster
+var TermsterLine = require('termster').TermsterLine
 
-var termy = new Termy()
+var termster = new Termster()
 
-termy.addLine(new TermyLine({
-  string: "cd ~/code/termy"
+termster.addLine(new TermsterLine({
+  string: "cd ~/code/termster"
 }))
-termy.addLine(new TermyLine({
+termster.addLine(new TermsterLine({
   string: "ls -lah"
 }))
-termy.addLine(new TermyLine({
+termster.addLine(new TermsterLine({
   type: 'output',
   string: "total 5"
 }))
-termy.addLine(new TermyLine({
+termster.addLine(new TermsterLine({
   type: 'output',
   string: "drwxr-xr-x   9  joegesualdo  staff   306B Mar 11 13:23 ."
 }))
-termy.addLine(new TermyLine({
+termster.addLine(new TermsterLine({
   type: 'output',
   string: "drwxr-xr-x  51 joegesualdo  staff   1.7K Mar 11 00:05 .."
 }))
-termy.addLine(new TermyLine({
+termster.addLine(new TermsterLine({
   type: 'output',
   string: "drwxr-xr-x  13 joegesualdo  staff   442B Mar 11 14:28 .git"
 }))
-termy.addLine(new TermyLine({
+termster.addLine(new TermsterLine({
   type: 'output',
   string: "-rw-r--r--   1  joegesualdo  staff   1.0K Mar 11 13:26 README.md"
 }))
-termy.addLine(new TermyLine({
+termster.addLine(new TermsterLine({
   type: 'output',
   string: "-rw-r--r--   1  joegesualdo  staff   2.3K Mar 11 13:55 index.js"
 }))
-termy.addLine(new TermyLine({
+termster.addLine(new TermsterLine({
   string: "node ./index.js"
 }))
-termy.addLines('output', [
+termster.addLines('output', [
   '________________',
-  '< I loooove Termy>',
+  '< I loooove Termster>',
   '----------------',
   '       \\   ^__^',
   '        \\  (oo)\______',
@@ -58,7 +58,7 @@ termy.addLines('output', [
 ])
 
 // Get html markup:
-termy.getHTML()
+termster.getHTML()
 
 // Attach to DOM
 var newNode = document.createElement('div')

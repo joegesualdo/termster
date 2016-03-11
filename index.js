@@ -1,17 +1,17 @@
 var Shatter = require("shatter-html")
 var wrapWithHTML = require("wrap-with-html")
 
-function Termy(opts) {
+function Termster(opts) {
   this.lines = []
 }
 
-function TermyLine(opts) {
+function TermsterLine(opts) {
   var opts = opts || {}
   this.type = opts.type || 'command'
   this.rawString = opts.string
 }
 
-TermyLine.prototype.getHTML = function() {
+TermsterLine.prototype.getHTML = function() {
     var lineHTML = ''
       var textShatterEl = new Shatter({
         string: this.rawString,
@@ -59,13 +59,13 @@ TermyLine.prototype.getHTML = function() {
     return lineHTML;
 }
 
-Termy.prototype.addLine = function(line){
+Termster.prototype.addLine = function(line){
   this.lines.push(line)
 }
-Termy.prototype.addLines = function(type, strings){
+Termster.prototype.addLines = function(type, strings){
   var that = this;
   var lines = strings.map(function(string){ 
-    var line= new TermyLine()
+    var line= new TermsterLine()
     line.type = type;
     line.rawString = string;
     return line 
@@ -73,7 +73,7 @@ Termy.prototype.addLines = function(type, strings){
   this.lines = this.lines.concat(lines)
 }
 
-Termy.prototype.getHTML = function() {
+Termster.prototype.getHTML = function() {
   var html = ''
   this.lines.forEach(function(line){
     html += line.getHTML()
@@ -81,9 +81,9 @@ Termy.prototype.getHTML = function() {
   return html;
 }
 
-Termy.prototype.TermyLine = TermyLine
+Termster.prototype.TermsterLine = TermsterLine
 
 module.exports = {
-  Termy: Termy,
-  TermyLine: TermyLine
+  Termster: Termster,
+  TermsterLine: TermsterLine
 }

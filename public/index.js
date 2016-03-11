@@ -2,17 +2,17 @@
 var Shatter = require("shatter-html");
 var wrapWithHTML = require("wrap-with-html");
 
-function Termy(opts) {
+function Termster(opts) {
   this.lines = [];
 }
 
-function TermyLine(opts) {
+function TermsterLine(opts) {
   var opts = opts || {};
   this.type = opts.type || 'command';
   this.rawString = opts.string;
 }
 
-TermyLine.prototype.getHTML = function () {
+TermsterLine.prototype.getHTML = function () {
   var lineHTML = '';
   var textShatterEl = new Shatter({
     string: this.rawString,
@@ -60,13 +60,13 @@ TermyLine.prototype.getHTML = function () {
   return lineHTML;
 };
 
-Termy.prototype.addLine = function (line) {
+Termster.prototype.addLine = function (line) {
   this.lines.push(line);
 };
-Termy.prototype.addLines = function (type, strings) {
+Termster.prototype.addLines = function (type, strings) {
   var that = this;
   var lines = strings.map(function (string) {
-    var line = new TermyLine();
+    var line = new TermsterLine();
     line.type = type;
     line.rawString = string;
     return line;
@@ -74,7 +74,7 @@ Termy.prototype.addLines = function (type, strings) {
   this.lines = this.lines.concat(lines);
 };
 
-Termy.prototype.getHTML = function () {
+Termster.prototype.getHTML = function () {
   var html = '';
   this.lines.forEach(function (line) {
     html += line.getHTML();
@@ -82,11 +82,11 @@ Termy.prototype.getHTML = function () {
   return html;
 };
 
-Termy.prototype.TermyLine = TermyLine;
+Termster.prototype.TermsterLine = TermsterLine;
 
 module.exports = {
-  Termy: Termy,
-  TermyLine: TermyLine
+  Termster: Termster,
+  TermsterLine: TermsterLine
 };
 
 },{"shatter-html":2,"wrap-with-html":3}],2:[function(require,module,exports){
@@ -185,46 +185,46 @@ module.exports = wrapWithHTML;
 },{}],4:[function(require,module,exports){
 var Shatter = require("shatter-html");
 var wrapWithHTML = require("wrap-with-html");
-var Termy = require('../../index.js').Termy;
-var TermyLine = require('../../index.js').TermyLine;
+var Termster = require('../../index.js').Termster;
+var TermsterLine = require('../../index.js').TermsterLine;
 
-var termy = new Termy();
-termy.addLine(new TermyLine({
-  string: "cd ~/code/termy"
+var termster = new Termster();
+termster.addLine(new TermsterLine({
+  string: "cd ~/code/termster"
 }));
-termy.addLine(new TermyLine({
+termster.addLine(new TermsterLine({
   string: "ls -lah"
 }));
-termy.addLine(new TermyLine({
+termster.addLine(new TermsterLine({
   type: 'output',
   string: "total 5"
 }));
-termy.addLine(new TermyLine({
+termster.addLine(new TermsterLine({
   type: 'output',
   string: "drwxr-xr-x   9  joegesualdo  staff   306B Mar 11 13:23 ."
 }));
-termy.addLine(new TermyLine({
+termster.addLine(new TermsterLine({
   type: 'output',
   string: "drwxr-xr-x  51 joegesualdo  staff   1.7K Mar 11 00:05 .."
 }));
-termy.addLine(new TermyLine({
+termster.addLine(new TermsterLine({
   type: 'output',
   string: "drwxr-xr-x  13 joegesualdo  staff   442B Mar 11 14:28 .git"
 }));
-termy.addLine(new TermyLine({
+termster.addLine(new TermsterLine({
   type: 'output',
   string: "-rw-r--r--   1  joegesualdo  staff   1.0K Mar 11 13:26 README.md"
 }));
-termy.addLine(new TermyLine({
+termster.addLine(new TermsterLine({
   type: 'output',
   string: "-rw-r--r--   1  joegesualdo  staff   2.3K Mar 11 13:55 index.js"
 }));
-termy.addLine(new TermyLine({
+termster.addLine(new TermsterLine({
   string: "node ./index.js"
 }));
-termy.addLines('output', ['________________', '< I loooove Termy>', '----------------', '       \\   ^__^', '        \\  (oo)\______', '            (__)\\       )\\/\\', '              ||----w |', '              ||        ||']);
+termster.addLines('output', ['________________', '< I loooove Termster>', '----------------', '       \\   ^__^', '        \\  (oo)\______', '            (__)\\       )\\/\\', '              ||----w |', '              ||        ||']);
 
-var html = termy.getHTML();
+var html = termster.getHTML();
 
 // var html = shatterEl.getHTML()
 var newNode = document.createElement('div');
