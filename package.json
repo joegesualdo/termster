@@ -1,15 +1,19 @@
 {
-  "name": "servester",
+  "name": "Termy",
   "version": "0.0.1",
-  "description": "",
+  "description": "Terminal html element",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Joe Gesualdo",
+  "license": "MIT",
   "dependencies": {
+    "wrap-with-html": "0.0.1",
+    "shatter-html": "0.0.3"
+  },
+  "devDependencies": {
     "babel-preset-react": "^6.5.0",
     "babelify": "^7.2.0",
     "browserify": "^13.0.0",

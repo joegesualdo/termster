@@ -1,18 +1,7 @@
-## Termy 
-> Terminal html element.
-
-## Install
-```
-$ npm install --save termy 
-```
-
-## Usage
-```javascript
-var Termy = require('termy').Termy
-var TermyLine = require('termy').TermyLine
+var Termy = require(__dirname + '/../index.js').Termy
+var TermyLine = require(__dirname + '/../index.js').TermyLine
 
 var termy = new Termy()
-
 termy.addLine(new TermyLine({
   string: "cd ~/code/termy"
 }))
@@ -57,15 +46,5 @@ termy.addLines('output', [
   '              ||        ||'
 ])
 
-// Get html markup:
-termy.getHTML()
-
-// Attach to DOM
-var newNode = document.createElement('div')
-newNode.innerHTML = html
-document.querySelector(".terminal-simulator").appendChild(newNode)
-```
-
-## API
-
-*Coming Soon*
+var html = termy.getHTML()
+console.log(html)

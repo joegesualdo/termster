@@ -9,7 +9,8 @@
   font-family: "Droid Sans Mono", monospace;
   font-weight: 400;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.25);
-  border-radius: 3px; }
+  border-radius: 3px;
+  overflow: auto; }
 
 .terminal-simulator_line {
   word-wrap: break-word;
@@ -20,7 +21,8 @@
   padding: 1em;
   color: #e8e8e8;
   padding: 0;
-  display: block; }
+  display: block;
+  white-space: nowrap; }
 
 .terminal-simulator_line--comment {
   color: #666666; }
@@ -62,7 +64,7 @@
 
 .terminal-simulator_line_content_prompt_sequence_char {
   display: inline-block;
-  font-size: 20px;
+  font-size: 16px;
   padding: 0 .2px;
   text-align: center; }
 
@@ -109,7 +111,7 @@
 
 .terminal-simulator_line_content_sequence_char, .terminal-simulator_line_content_prompt_sequence_char--green, .terminal-simulator_line_content_prompt_sequence_char--cayan, .terminal-simulator_line_content_prompt_sequence_char--magenta, .terminal-simulator_line_content_prompt_sequence_char--blue, .terminal-simulator_line_content_prompt_sequence_char--yellow, .terminal-simulator_line_content_prompt_sequence_char--red, .terminal-simulator_line_content_sequence_char--green, .terminal-simulator_line_content_sequence_char--cayan, .terminal-simulator_line_content_sequence_char--magenta, .terminal-simulator_line_content_sequence_char--blue, .terminal-simulator_line_content_sequence_char--yellow, .terminal-simulator_line_content_sequence_char--red {
   display: inline-block;
-  font-size: 20px;
+  font-size: 16px;
   padding: 0 .2px;
   text-align: center; }
 

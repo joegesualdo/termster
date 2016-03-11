@@ -8,7 +8,7 @@ $blue: #78AAD6;
 $yellow: #FFD479;
 $red: #F78D8C;
 
-$font-size: 20px;
+$font-size: 16px;
 
 .terminal-simulator {
   width: 100%;
@@ -22,6 +22,7 @@ $font-size: 20px;
   font-weight: 400;
   box-shadow: 0 0 1em rgba(0,0,0,0.25);
   border-radius: 3px;
+  overflow: auto;
 }
 
 .terminal-simulator_line {
@@ -36,6 +37,7 @@ $font-size: 20px;
   color: #e8e8e8;
   padding: 0;
   display: block;
+  white-space: nowrap;
 }
 .terminal-simulator_line--comment {
   @extend .terminal-simulator_line--comment;
