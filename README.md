@@ -16,6 +16,7 @@ $ npm install --save termster
 ```javascript
 var Termster = require('termster')
 var TermsterLine = Termster.TermsterLine
+var TermsterDOM = Termster.TermsterDOM
 
 var termster = new Termster()
 
@@ -66,10 +67,11 @@ termster.addLines('output', [
 // Get html markup:
 termster.getHTML()
 
-// Attach to DOM
-var newNode = document.createElement('div')
-newNode.innerHTML = html
-document.querySelector(".terminal-simulator").appendChild(newNode)
+// OR Attach to DOM
+TermsterDOM.render(
+  termster,
+  document.querySelector(".app")
+)
 ```
 ### The above example can be previewed [here](https://htmlpreview.github.io/?https://github.com/joegesualdo/termster/blob/master/public/index.html)
 

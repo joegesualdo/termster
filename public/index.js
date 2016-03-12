@@ -4,6 +4,7 @@ var wrapWithHTML = require("wrap-with-html");
 // var Termster = require('../../index.js').Termster
 var Termster = require('../../index.js');
 var TermsterLine = Termster.TermsterLine;
+var TermsterDOM = Termster.TermsterDOM;
 
 var termster = new Termster();
 termster.addLine(new TermsterLine({
@@ -41,19 +42,14 @@ termster.addLine(new TermsterLine({
 }));
 termster.addLines('output', ['________________', '< I loooove Termster>', '----------------', '       \\   ^__^', '        \\  (oo)\______', '            (__)\\       )\\/\\', '              ||----w |', '              ||        ||']);
 
-var html = termster.getHTML();
-
-// var html = shatterEl.getHTML()
-var newNode = document.createElement('div');
-newNode.innerHTML = html;
-document.querySelector(".terminal-simulator").appendChild(newNode);
+TermsterDOM.render(termster, document.querySelector(".app"));
 
 },{"../../index.js":2,"shatter-html":3,"wrap-with-html":4}],2:[function(require,module,exports){
 var Termster = require("./src/termster.js");
 
 module.exports = Termster;
 
-},{"./src/termster.js":6}],3:[function(require,module,exports){
+},{"./src/termster.js":7}],3:[function(require,module,exports){
 var wrapWithHTML = require("wrap-with-html");
 
 function Shatter(opts) {
@@ -147,6 +143,19 @@ function wrapWithHTML(opts) {
 module.exports = wrapWithHTML;
 
 },{}],5:[function(require,module,exports){
+var TermsterDOM = function () {
+  function render(termsterInstance, node) {
+    var html = termsterInstance.getHTML();
+    node.innerHTML = html;
+  }
+  return {
+    render: render
+  };
+}();
+
+module.exports = TermsterDOM;
+
+},{}],6:[function(require,module,exports){
 var Shatter = require("shatter-html");
 var wrapWithHTML = require("wrap-with-html");
 function TermsterLine(opts) {
@@ -205,8 +214,10 @@ TermsterLine.prototype.getHTML = function () {
 
 module.exports = TermsterLine;
 
-},{"shatter-html":3,"wrap-with-html":4}],6:[function(require,module,exports){
+},{"shatter-html":3,"wrap-with-html":4}],7:[function(require,module,exports){
 var TermsterLine = require("./termster-line.js");
+var TermsterDOM = require("./termster-dom.js");
+var wrapWithHTML = require("wrap-with-html");
 
 function Termster(opts) {
   this.lines = [];
@@ -231,11 +242,17 @@ Termster.prototype.getHTML = function () {
   this.lines.forEach(function (line) {
     html += line.getHTML();
   });
+  html = wrapWithHTML({
+    string: html,
+    tagName: "div",
+    customClass: "terminal-simulator"
+  });
   return html;
 };
 
 Termster.TermsterLine = TermsterLine;
+Termster.TermsterDOM = TermsterDOM;
 
 module.exports = Termster;
 
-},{"./termster-line.js":5}]},{},[1,2]);
+},{"./termster-dom.js":5,"./termster-line.js":6,"wrap-with-html":4}]},{},[1,2]);

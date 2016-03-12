@@ -2,7 +2,8 @@ var Shatter = require("shatter-html")
 var wrapWithHTML = require("wrap-with-html")
 // var Termster = require('../../index.js').Termster
 var Termster = require('../../index.js')
-var TermsterLine = Termster.TermsterLine
+var TermsterLine = Termster.TermsterLine;
+var TermsterDOM = Termster.TermsterDOM;
 
 var termster = new Termster()
 termster.addLine(new TermsterLine({
@@ -49,10 +50,7 @@ termster.addLines('output', [
   '              ||        ||'
 ])
 
-
-var html = termster.getHTML()
-
-// var html = shatterEl.getHTML()
-var newNode = document.createElement('div')
-newNode.innerHTML = html
-document.querySelector(".terminal-simulator").appendChild(newNode)
+TermsterDOM.render(
+  termster,
+  document.querySelector(".app")
+)

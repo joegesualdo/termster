@@ -1,4 +1,6 @@
 var TermsterLine = require("./termster-line.js")
+var TermsterDOM = require("./termster-dom.js")
+var wrapWithHTML = require("wrap-with-html")
 
 function Termster(opts) {
   this.lines = []
@@ -23,9 +25,15 @@ Termster.prototype.getHTML = function() {
   this.lines.forEach(function(line){
     html += line.getHTML()
   })
+  html = wrapWithHTML({
+    string: html,
+    tagName: "div",
+    customClass: "terminal-simulator"
+  })
   return html;
 }
 
 Termster.TermsterLine = TermsterLine
+Termster.TermsterDOM = TermsterDOM
 
 module.exports = Termster;
