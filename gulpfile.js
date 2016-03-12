@@ -12,7 +12,7 @@ var server = require("./server.js")
 
 gulp.task('convert-jsx', function (){
   // http://egorsmirnov.me/2015/05/25/browserify-babelify-and-es6.html
-  var bundler = browserify('./src/scripts/app.jsx')
+  var bundler = browserify({entries: ['./app/scripts/app.jsx', './index.js']})
     bundler.transform(babelify, {presets: ['react']})
     var stream = bundler.bundle()
     return stream
@@ -23,21 +23,21 @@ gulp.task('convert-jsx', function (){
 });
 
 gulp.task('compile-css', function(){
-  return gulp.src("./src/stylesheets/app.scss")
+  return gulp.src("./app/stylesheets/app.scss")
     .pipe(sass().on('error', sass.logError))
     .pipe(rename("index.css"))
     .pipe(gulp.dest('public'));
 })
 
 gulp.task('lint', function() {
-  return gulp.src('./src/scripts/**/*')
+  return gulp.src('./app/scripts/**/*')
     .pipe(jshint({ linter: require('jshint-jsx').JSXHINT }))
     .pipe(jshint.reporter(stylish))
 });
 
 gulp.task('watch', function(){
-  gulp.watch("src/stylesheets/**/*", ['compile-css']);
-  gulp.watch("src/scripts/**/*", ['convert-jsx', 'lint']);
+  gulp.watch("app/stylesheets/**/*", ['compile-css']);
+  gulp.watch("app/scripts/**/*", ['convert-jsx', 'lint']);
 });
 
 gulp.task('start-server', function(){

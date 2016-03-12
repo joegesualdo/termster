@@ -1,4 +1,4 @@
-var Termster = require(__dirname + '/../index.js').Termster
+var Termster = require(__dirname + '/../index.js')
 var TermsterLine = require(__dirname + '/../index.js').TermsterLine
 
 var termster = new Termster()

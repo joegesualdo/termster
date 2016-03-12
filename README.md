@@ -14,8 +14,8 @@ $ npm install --save termster
 
 ## Usage
 ```javascript
-var Termster = require('termster').Termster
-var TermsterLine = require('termster').TermsterLine
+var Termster = require('termster')
+var TermsterLine = Termster.TermsterLine
 
 var termster = new Termster()
 
