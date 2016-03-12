@@ -1,6 +1,6 @@
 {
   "name": "termster",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Terminal html element",
   "main": "gulpfile.js",
   "scripts": {

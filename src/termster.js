@@ -2,7 +2,10 @@ var TermsterLine = require("./termster-line.js")
 var TermsterDOM = require("./termster-dom.js")
 var wrapWithHTML = require("wrap-with-html")
 
+
 function Termster(opts) {
+  // Assing a random string as a reference so we can access later.
+  this.ref = generateRandomString();
   this.lines = []
 }
 
@@ -28,12 +31,25 @@ Termster.prototype.getHTML = function() {
   html = wrapWithHTML({
     string: html,
     tagName: "div",
-    customClass: "terminal-simulator"
+    // Assign the reference so we can access the dom node later.
+    customId: this.ref,
+    customClass: "terminal-simulator",
+    
   })
   return html;
 }
 
 Termster.TermsterLine = TermsterLine
 Termster.TermsterDOM = TermsterDOM
+
+// Helper utilites
+function randomString(length, chars) {
+    var result = '';
+    for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+    return result;
+}
+function generateRandomString(){
+  return randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+}
 
 module.exports = Termster;
