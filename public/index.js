@@ -42,7 +42,12 @@ termster.addLine(new TermsterLine({
 }));
 termster.addLines('output', ['________________', '< I loooove Termster>', '----------------', '       \\   ^__^', '        \\  (oo)\______', '            (__)\\       )\\/\\', '              ||----w |', '              ||        ||']);
 
-TermsterDOM.render(termster, document.querySelector(".app"));
+TermsterDOM.render(termster, document.querySelector(".app"), {
+  hidden: true
+});
+TermsterDOM.startTyping(termster, {
+  speed: 50
+});
 
 },{"../../index.js":2,"shatter-html":3,"wrap-with-html":4}],2:[function(require,module,exports){
 var Termster = require("./src/termster.js");
@@ -144,12 +149,29 @@ module.exports = wrapWithHTML;
 
 },{}],5:[function(require,module,exports){
 var TermsterDOM = function () {
-  function render(termsterInstance, node) {
+  function render(termsterInstance, node, opts) {
     var html = termsterInstance.getHTML();
     node.innerHTML = html;
+    if (opts && opts.hidden === true) {
+      var chars = document.querySelector("#" + termsterInstance.ref).querySelectorAll(".terminal-simulator_line_content_prompt_sequence_char, .terminal-simulator_line_content_sequence_char");
+      Array.prototype.forEach.call(chars, function ($char, index) {
+        $char.style.opacity = "0";
+      });
+    }
+  }
+  function startTyping(termsterInstance, opts) {
+    opts = opts || {};
+    var speed = opts.speed || 100;
+    var chars = document.querySelector("#" + termsterInstance.ref).querySelectorAll(".terminal-simulator_line_content_prompt_sequence_char, .terminal-simulator_line_content_sequence_char");
+    Array.prototype.forEach.call(chars, function ($char, index) {
+      setTimeout(function () {
+        $char.style.opacity = "1";
+      }, speed * index);
+    });
   }
   return {
-    render: render
+    render: render,
+    startTyping
   };
 }();
 
@@ -220,6 +242,7 @@ var TermsterDOM = require("./termster-dom.js");
 var wrapWithHTML = require("wrap-with-html");
 
 function Termster(opts) {
+  // Assing a random string as a reference so we can access later.
   this.ref = generateRandomString();
   this.lines = [];
 }
@@ -246,6 +269,7 @@ Termster.prototype.getHTML = function () {
   html = wrapWithHTML({
     string: html,
     tagName: "div",
+    // Assign the reference so we can access the dom node later.
     customId: this.ref,
     customClass: "terminal-simulator"
 

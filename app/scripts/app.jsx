@@ -52,5 +52,11 @@ termster.addLines('output', [
 
 TermsterDOM.render(
   termster,
-  document.querySelector(".app")
+  document.querySelector(".app"),
+  {
+    hidden: true
+  }
 )
+TermsterDOM.startTyping(termster, {
+  speed:50
+})
