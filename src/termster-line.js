@@ -42,13 +42,13 @@ TermsterLine.prototype.getHTML = function() {
       lineHTML += wrapWithHTML({
         string: promptShatterEl.getHTML() + textShatterEl.getHTML(),
         tagName: "div",
-        customClass: "terminal-simulator_line"
+        customClass: "terminal-simulator_line--" + this.type
       })
     } else if (this.type === 'output'){
       lineHTML += wrapWithHTML({
         string: textShatterEl.getHTML(),
         tagName: "div",
-        customClass: "terminal-simulator_line"
+        customClass: "terminal-simulator_line--" + this.type
       })
     }
     return lineHTML;

@@ -149,23 +149,24 @@ module.exports = wrapWithHTML;
 
 },{}],5:[function(require,module,exports){
 var TermsterDOM = function () {
+  var divsToAnimateSelector = ".terminal-simulator_line--command .terminal-simulator_line_content_prompt_sequence_char, .terminal-simulator_line--command .terminal-simulator_line_content_sequence_char, .terminal-simulator_line--output";
   function render(termsterInstance, node, opts) {
     var html = termsterInstance.getHTML();
     node.innerHTML = html;
     if (opts && opts.hidden === true) {
-      var chars = document.getElementById(termsterInstance.ref).querySelectorAll(".terminal-simulator_line_content_prompt_sequence_char, .terminal-simulator_line_content_sequence_char");
-      Array.prototype.forEach.call(chars, function ($char, index) {
-        $char.style.opacity = "0";
+      var divsToShow = document.getElementById(termsterInstance.ref).querySelectorAll(divsToAnimateSelector);
+      Array.prototype.forEach.call(divsToShow, function ($divToShow, index) {
+        $divToShow.style.opacity = "0";
       });
     }
   }
   function startTyping(termsterInstance, opts) {
     opts = opts || {};
     var speed = opts.speed || 100;
-    var chars = document.getElementById(termsterInstance.ref).querySelectorAll(".terminal-simulator_line_content_prompt_sequence_char, .terminal-simulator_line_content_sequence_char");
-    Array.prototype.forEach.call(chars, function ($char, index) {
+    var divsToShow = document.getElementById(termsterInstance.ref).querySelectorAll(divsToAnimateSelector);
+    Array.prototype.forEach.call(divsToShow, function ($divToShow, index) {
       setTimeout(function () {
-        $char.style.opacity = "1";
+        $divToShow.style.opacity = "1";
       }, speed * index);
     });
   }
@@ -222,13 +223,13 @@ TermsterLine.prototype.getHTML = function () {
     lineHTML += wrapWithHTML({
       string: promptShatterEl.getHTML() + textShatterEl.getHTML(),
       tagName: "div",
-      customClass: "terminal-simulator_line"
+      customClass: "terminal-simulator_line--" + this.type
     });
   } else if (this.type === 'output') {
     lineHTML += wrapWithHTML({
       string: textShatterEl.getHTML(),
       tagName: "div",
-      customClass: "terminal-simulator_line"
+      customClass: "terminal-simulator_line--" + this.type
     });
   }
   return lineHTML;
