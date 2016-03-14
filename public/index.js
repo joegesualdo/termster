@@ -42,11 +42,11 @@ termster.addLine(new TermsterLine({
 }));
 termster.addLines('output', ['________________', '< I loooove Termster>', '----------------', '       \\   ^__^', '        \\  (oo)\______', '            (__)\\       )\\/\\', '              ||----w |', '              ||        ||']);
 
-TermsterDOM.render(termster, document.querySelector(".app"), {
+TermsterDOM.render(termster, document.querySelector(".termster-container"), {
   hidden: true
 });
 TermsterDOM.startTyping(termster, {
-  speed: 50
+  speed: 100
 });
 
 },{"../../index.js":2,"shatter-html":3,"wrap-with-html":4}],2:[function(require,module,exports){
@@ -149,7 +149,10 @@ module.exports = wrapWithHTML;
 
 },{}],5:[function(require,module,exports){
 var TermsterDOM = function () {
+  // We want to animate each character of a command line to simulate typing
+  //   But for our output lines, we want to animate the entire line, not each character.
   var divsToAnimateSelector = ".terminal-simulator_line--command .terminal-simulator_line_content_prompt_sequence_char, .terminal-simulator_line--command .terminal-simulator_line_content_sequence_char, .terminal-simulator_line--output";
+
   function render(termsterInstance, node, opts) {
     var html = termsterInstance.getHTML();
     node.innerHTML = html;
