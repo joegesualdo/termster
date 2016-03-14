@@ -22,10 +22,16 @@ gulp.task('convert-jsx', function (){
       .pipe(gulp.dest('public'));
 });
 
-gulp.task('compile-css', function(){
-  return gulp.src("./app/stylesheets/app.scss")
+gulp.task('compile-demo-css', function(){
+  return gulp.src("./app/stylesheets/demo/demo.scss")
     .pipe(sass().on('error', sass.logError))
     .pipe(rename("index.css"))
+    .pipe(gulp.dest('public'));
+})
+gulp.task('compile-termster-css', function(){
+  return gulp.src("./app/stylesheets/termster/termster.scss")
+    .pipe(sass().on('error', sass.logError))
+    .pipe(rename("termster.css"))
     .pipe(gulp.dest('public'));
 })
 
@@ -36,7 +42,7 @@ gulp.task('lint', function() {
 });
 
 gulp.task('watch', function(){
-  gulp.watch("app/stylesheets/**/*", ['compile-css']);
+  gulp.watch("app/stylesheets/**/*", ['compile-demo-css', 'compile-termster-css']);
   gulp.watch("app/scripts/**/*", ['convert-jsx', 'lint']);
 });
 
@@ -44,7 +50,7 @@ gulp.task('start-server', function(){
   server.createServer()
 })
 
-gulp.task("default", ["compile-css", "convert-jsx", "watch", "start-server"], function(){
+gulp.task("default", ["compile-demo-css", "compile-termster-css", "convert-jsx", "watch", "start-server"], function(){
 })
 
 

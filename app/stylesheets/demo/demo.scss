@@ -1,0 +1,99 @@
+@import 'reset';
+
+body {
+  background: #f3f4f7;
+}
+
+
+.simplistic-project-template {
+  background: #f3f4f7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #445870;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
+  font-family: 'Work Sans', sans-serif;
+  letter-spacing: -0.25px;
+}
+@media only screen and (max-width: 700px) {
+  .simplistic-project-template {
+    padding: 0 10px;
+  }
+}
+
+.simplistic-project-template_header {
+  text-align: center;
+  margin: 0 auto;
+  width: 600px;
+  padding: 25px 0;
+}
+@media only screen and (max-width: 700px) {
+  .simplistic-project-template_header {
+    width: 100%;
+  }
+}
+
+.simplistic-project-template_header_title {
+  font-size: 36px;
+  font-weight: 300;
+  letter-spacing: -2px;
+}
+.simplistic-project-template_header_description{
+  color: #90a1b5;
+  font-size: 18px;
+  margin: 25px 0;
+}
+.simplistic-project-template_header_actions {
+}
+.simplistic-project-template_header_actions_action-wrapper {
+  display: inline-block;
+}
+@media only screen and (max-width: 333px) {
+  .simplistic-project-template_header_actions_action-wrapper{
+    width: 100%;
+    margin: 3px 0;
+  }
+}
+.simplistic-project-template_header_actions_action-wrapper_action {
+  // padding: 20px;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 5px;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-weight: 600;
+  height: 42px;
+  // outline: none;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+  width: 100%;
+  border: 1px solid;
+  width: 100%;
+  display: inline-block;
+}
+.simplistic-project-template_header_actions_action-wrapper_action--filled {
+  @extend .simplistic-project-template_header_actions_action-wrapper_action;
+  background-color: #55a1fb;
+  // border-color: #55a1fb;
+  color: #fff;
+}
+.simplistic-project-template_header_actions_action-wrapper_action--transparent{
+  @extend .simplistic-project-template_header_actions_action-wrapper_action;
+  color: #55a1fb;
+  border-color: #d0dae5;
+}
+
+.termster-container {
+  width: 600px;
+  margin: 0 auto;
+}
+@media only screen and (max-width: 700px) {
+  .termster-container {
+    width: 100%;
+  }
+}
